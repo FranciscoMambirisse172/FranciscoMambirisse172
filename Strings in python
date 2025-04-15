@@ -1,0 +1,100 @@
+#Strings in Python
+
+#1. Count how many vowels are in a string
+
+string = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+count = 0
+
+for char in string:
+    if char in vowels:
+        count += 1
+
+print("Number of vowels:", count)
+
+#2. Convert all characters to lowercase/uppercase/toggle without built-in functions
+
+def to_lower_case(text):
+    result = ""
+    for ch in text:
+        if 'A' <= ch <= 'Z':
+            result += chr(ord(ch) + 32)
+        else:
+            result += ch
+    return result
+
+def to_upper_case(text):
+    result = ""
+    for ch in text:
+        if 'a' <= ch <= 'z':
+            result += chr(ord(ch) - 32)
+        else:
+            result += ch
+    return result
+
+def toggle_case(text):
+    result = ""
+    for ch in text:
+        if 'a' <= ch <= 'z':
+            result += chr(ord(ch) - 32)
+        elif 'A' <= ch <= 'Z':
+            result += chr(ord(ch) + 32)
+        else:
+            result += ch
+    return result
+
+text = input("Enter a string: ")
+
+print("Lowercase:", to_lower_case(text))
+print("Uppercase:", to_upper_case(text))
+print("Toggled case:", toggle_case(text))
+
+#3. Accept two strings. Check whether one string is there in another
+
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
+
+found = False
+
+for i in range(len(str1) - len(str2) + 1):
+    match = True
+    for j in range(len(str2)):
+        if str1[i + j] != str2[j]:
+            match = False
+            break
+    if match:
+        found = True
+        break
+
+if found:
+    print("Yes, the second string is found in the first string.")
+else:
+    print("No, the second string is NOT found in the first string.")
+```
+
+---
+
+#4. Remove one string from another, if present
+
+def remove_substring(main_str, remove_str):
+    result = ""
+    i = 0
+    while i < len(main_str):
+        match = True
+        if i + len(remove_str) <= len(main_str):
+            for j in range(len(remove_str)):
+                if main_str[i + j] != remove_str[j]:
+                    match = False
+                    break
+            if match:
+                i += len(remove_str)
+                continue
+        result += main_str[i]
+        i += 1
+    return result
+
+main = input("Enter the main string: ")
+remove = input("Enter the string to remove: ")
+
+final = remove_substring(main, remove)
+print("Final string:", final)
