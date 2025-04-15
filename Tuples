@@ -1,0 +1,119 @@
+Tuples
+
+#1. Count the number of boys and girls in the list where boys' names are stored as tuples
+
+# Sample list with names of boys (stored as tuples) and girls
+names_list = [("John", "Mike", "Tom"), "Alice", "Emma", "Sophia", ("David", "Paul"), "Olivia"]
+
+boys_count = 0
+girls_count = 0
+
+for ele in names_list:
+    if isinstance(ele, tuple):
+        boys_count += 1  # Count tuple as a boy's name
+    else:
+        girls_count += 1  # Count strings as girl's name
+
+print("Number of boys:", boys_count)
+print("Number of girls:", girls_count)
+
+
+#2. Create three separate lists for roll no., name, and age from a list of tuples containing this information
+
+# Sample list of tuples containing (roll no., name, age)
+students = [(1, "John", 15), (2, "Alice", 14), (3, "Bob", 16)]
+
+roll_no = []
+names = []
+ages = []
+
+for student in students:
+    roll_no.append(student[0])
+    names.append(student[1])
+    ages.append(student[2])
+
+print("Roll numbers:", roll_no)
+print("Names:", names)
+print("Ages:", ages)
+
+
+#3. Find the number of days between two date tuples (d, m, y)
+
+from datetime import date
+
+# Define two date tuples
+date1 = (15, 8, 2022)  # (day, month, year)
+date2 = (25, 12, 2022)
+
+# Convert tuples to date objects
+d1 = date(date1[2], date1[1], date1[0])
+d2 = date(date2[2], date2[1], date2[0])
+
+# Calculate the difference in days
+days_difference = (d2 - d1).days
+
+print(f"Number of days between {date1} and {date2} is {days_difference} days.")
+
+
+#4. Sort a list of tuples by price in descending order
+
+# Sample list of tuples containing food item and its price
+food_items = [("Burger", 5), ("Pizza", 10), ("Pasta", 7), ("Ice cream", 3)]
+
+# Sort the list by price (second element of tuple) in descending order
+sorted_food = sorted(food_items, key=lambda x: x[1], reverse=True)
+
+print("Sorted food items by price (descending):", sorted_food)
+
+*5. Remove empty tuple(s) from a list of tuples
+
+# List containing tuples, including some empty ones
+tuples_list = [(), (1, 2), (3, 4), (), (5, 6)]
+
+# Remove empty tuples using a list comprehension
+filtered_list = [tup for tup in tuples_list if tup]
+
+print("List after removing empty tuples:", filtered_list)
+
+#6. Modify an element of a tuple
+
+# Tuples are immutable, so we can't directly modify an element.
+# However, we can convert it to a list, modify, and then convert it back to a tuple.
+
+tup = (1, 2, 3, 4)
+# Convert to list
+temp_list = list(tup)
+# Modify the second element
+temp_list[1] = 10
+# Convert back to tuple
+modified_tup = tuple(temp_list)
+
+print("Original tuple:", tup)
+print("Modified tuple:", modified_tup)
+
+#7. Delete an element of a tuple
+
+# Tuples are immutable, so elements cannot be deleted directly.
+# Like modification, we convert it to a list, delete the element, and convert it back.
+
+tup = (1, 2, 3, 4)
+# Convert to list
+temp_list = list(tup)
+# Delete the third element
+del temp_list[2]
+# Convert back to tuple
+new_tup = tuple(temp_list)
+
+print("Original tuple:", tup)
+print("New tuple after deletion:", new_tup)
+
+#8. What will be the output of the following code?
+
+lst = [('X', 'Y', 'Z'), 40, 50, 60]
+a = lst[0]
+print(a)
+```
+
+#### Output:
+
+('X', 'Y', 'Z')
