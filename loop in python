@@ -1,0 +1,145 @@
+Loop in python
+
+#1. Print all alphabets in upper and lower case
+
+print("Lowercase letters:")
+for i in range(97, 123):  # a-z
+    print(chr(i), end=" ")
+print("\nUppercase letters:")
+for i in range(65, 91):  # A-Z
+    print(chr(i), end=" ")
+
+#2. Print multiplication table of a given number
+
+n = int(input("Enter a number: "))
+for i in range(1, 11):
+    print(f"{n} x {i} = {n * i}")
+
+#3. Count alphabets and digits in a string
+
+s = input("Enter a string: ")
+letters = digits = 0
+
+for ch in s:
+    if '0' <= ch <= '9':
+        digits += 1
+    elif ('a' <= ch <= 'z') or ('A' <= ch <= 'Z'):
+        letters += 1
+
+print("Alphabets:", letters)
+print("Digits:", digits)
+
+#4. Check number properties (Prime, Perfect, Armstrong, Palindrome, Automorphic)
+
+n = int(input("Enter a number: "))
+
+# Prime check
+is_prime = n > 1 and all(n % i != 0 for i in range(2, int(n ** 0.5) + 1))
+
+# Perfect check
+sum_factors = sum(i for i in range(1, n) if n % i == 0)
+is_perfect = sum_factors == n
+
+# Armstrong check
+num_str = str(n)
+power = len(num_str)
+is_armstrong = sum(int(d) ** power for d in num_str) == n
+
+# Palindrome check
+is_palindrome = str(n) == str(n)[::-1]
+
+# Automorphic check
+square = n * n
+is_automorphic = str(square).endswith(str(n))
+
+print("Prime:", is_prime)
+print("Perfect:", is_perfect)
+print("Armstrong:", is_armstrong)
+print("Palindrome:", is_palindrome)
+print("Automorphic:", is_automorphic)
+```
+
+---
+
+#5. Generate all Pythagorean Triplets with sides ≤ 30
+
+print("Pythagorean Triplets with side <= 30:")
+for a in range(1, 31):
+    for b in range(a, 31):  # ensure no repeats
+        c = (a**2 + b**2) ** 0.5
+        if c.is_integer() and c <= 30:
+            print(f"{a}, {b}, {int(c)}")
+
+#6. Print 24 hours with AM/PM/Noon/Midnight
+```python
+for hour in range(0, 24):
+    if hour == 0:
+        print("12 Midnight")
+    elif hour == 12:
+        print("12 Noon")
+    elif hour < 12:
+        print(f"{hour} AM")
+    else:
+        print(f"{hour - 12} PM")
+
+### **7. Print nCr and nPr**
+```python
+def factorial(n):
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+n = int(input("Enter value for n: "))
+r = int(input("Enter value for r: "))
+
+nCr = factorial(n) // (factorial(r) * factorial(n - r))
+nPr = factorial(n) // factorial(n - r)
+
+print(f"nCr = {nCr}")
+print(f"nPr = {nPr}")
+
+#8. Print factorial of a number
+
+num = int(input("Enter a number: "))
+fact = 1
+for i in range(2, num + 1):
+    fact *= i
+print(f"Factorial of {num} is {fact}")
+
+#9. Print N natural numbers in reverse
+n = int(input("Enter N: "))
+for i in range(n, 0, -1):
+    print(i, end=" ")
+
+#10. Generate N numbers of Fibonacci series
+
+n = int(input("Enter number of terms: "))
+a, b = 0, 1
+for _ in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+#11. Calculate sin(x) using series expansion (Taylor Series)
+
+
+import math
+
+x = float(input("Enter value of x in radians: "))
+terms = int(input("Enter number of terms: "))  # more terms = more accurate
+
+def factorial(n):
+    f = 1
+    for i in range(2, n+1):
+        f *= i
+    return f
+
+sin_x = 0
+for i in range(terms):
+    sign = (-1) ** i
+    power = 2 * i + 1
+    sin_x += sign * (x ** power) / factorial(power)
+
+print("sin(x) =", sin_x)
+print("Using math.sin(x):", math.sin(x))  # Just to compare
+
