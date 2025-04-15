@@ -1,0 +1,207 @@
+create a list
+
+#1. Create a list of 5 odd integers and 4 even integers using random numbers. Replace the third element of odd integers with the list of even integers. Flatten, sort, and print the list.
+import random
+
+# Generate a list of 5 odd integers
+odd_integers = [random.choice(range(1, 50, 2)) for _ in range(5)]
+print("List of 5 odd integers:", odd_integers)
+
+# Generate a list of 4 even integers
+even_integers = [random.choice(range(2, 50, 2)) for _ in range(4)]
+print("List of 4 even integers:", even_integers)
+
+# Replace the third element of odd_integers with the even_integers list
+odd_integers[2] = even_integers
+print("\nAfter replacing third element of odd_integers with even_integers:")
+print(odd_integers)
+
+# Flatten the list and sort it
+flattened_sorted_list = sorted([item for sublist in odd_integers for item in (sublist if isinstance(sublist, list) else [sublist])])
+print("\nFlattened and sorted list:", flattened_sorted_list)
+
+#2. Generate 20 random integers and store them in a list. Accept a number from the user and print the position of all occurrences of that number in the list
+
+# Generate 20 random integers
+random_list = [random.randint(1, 100) for _ in range(20)]
+print("List of random integers:", random_list)
+
+# Accept a number from the user
+num_to_search = int(input("Enter a number to search for: "))
+
+# Find and print the positions of all occurrences
+positions = [index for index, value in enumerate(random_list) if value == num_to_search]
+
+if positions:
+    print(f"The number {num_to_search} is found at positions: {positions}")
+else:
+    print(f"The number {num_to_search} is not found in the list.")
+
+#3. Generate 50 random numbers between 1 and 30, remove all duplicate values, and generate 30 random numbers. Create two lists – one containing only +ve numbers and another with –ve numbers.
+
+# Generate 50 random numbers in the range 1 to 30
+random_nums_1 = [random.randint(1, 30) for _ in range(50)]
+print("List of 50 random numbers (1-30):", random_nums_1)
+
+# Remove duplicates using set
+unique_nums = list(set(random_nums_1))
+print("\nList after removing duplicates:", unique_nums)
+
+# Generate 30 random numbers (both positive and negative)
+random_nums_2 = [random.randint(-30, 30) for _ in range(30)]
+print("\nList of 30 random numbers:", random_nums_2)
+
+# Create two lists: one with positive numbers and one with negative numbers
+positive_nums = [num for num in random_nums_2 if num > 0]
+negative_nums = [num for num in random_nums_2 if num < 0]
+
+print("\nList of positive numbers:", positive_nums)
+print("List of negative numbers:", negative_nums)
+
+
+#4. Convert a list of 5 strings to uppercase
+
+strings = ['hello', 'world', 'python', 'is', 'awesome']
+print("Original list of strings:", strings)
+
+# Convert all strings to uppercase
+upper_strings = [s.upper() for s in strings]
+print("\nList after converting strings to uppercase:", upper_strings)
+
+#5. Convert list of temperatures in Fahrenheit to Celsius
+
+fahrenheit = [32, 45, 50, 68, 77, 86, 95]
+print("List of temperatures in Fahrenheit:", fahrenheit)
+
+# Convert to Celsius using the formula (F - 32) * 5/9
+celsius = [(temp - 32) * 5/9 for temp in fahrenheit]
+print("\nList of temperatures in Celsius:", celsius)
+
+#6. Menu-driven program to implement the Stack data structure.
+
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def push(self, item):
+        self.stack.append(item)
+        print(f"Pushed {item} to stack.")
+
+    def pop(self):
+        if self.is_empty():
+            print("Stack is empty!")
+        else:
+            popped_item = self.stack.pop()
+            print(f"Popped {popped_item} from stack.")
+
+    def peek(self):
+        if self.is_empty():
+            print("Stack is empty!")
+        else:
+            print(f"Top element: {self.stack[-1]}")
+
+    def display(self):
+        if self.is_empty():
+            print("Stack is empty!")
+        else:
+            print("Stack elements:", self.stack)
+
+
+# Menu-driven interface for stack operations
+stack = Stack()
+while True:
+    print("\nMenu:")
+    print("1. Push")
+    print("2. Pop")
+    print("3. Peek")
+    print("4. Display")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        item = input("Enter an item to push: ")
+        stack.push(item)
+    elif choice == 2:
+        stack.pop()
+    elif choice == 3:
+        stack.peek()
+    elif choice == 4:
+        stack.display()
+    elif choice == 5:
+        print("Exiting Stack Operations.")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+#7. Menu-driven program to implement the Queue data structure.
+
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def enqueue(self, item):
+        self.queue.append(item)
+        print(f"Enqueued {item} to queue.")
+
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue is empty!")
+        else:
+            dequeued_item = self.queue.pop(0)
+            print(f"Dequeued {dequeued_item} from queue.")
+
+    def peek(self):
+        if self.is_empty():
+            print("Queue is empty!")
+        else:
+            print(f"Front element: {self.queue[0]}")
+
+    def display(self):
+        if self.is_empty():
+            print("Queue is empty!")
+        else:
+            print("Queue elements:", self.queue)
+
+
+# Menu-driven interface for queue operations
+queue = Queue()
+while True:
+    print("\nMenu:")
+    print("1. Enqueue")
+    print("2. Dequeue")
+    print("3. Peek")
+    print("4. Display")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        item = input("Enter an item to enqueue: ")
+        queue.enqueue(item)
+    elif choice == 2:
+        queue.dequeue()
+    elif choice == 3:
+        queue.peek()
+    elif choice == 4:
+        queue.display()
+    elif choice == 5:
+        print("Exiting Queue Operations.")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
+#8.Take two lists of numbers and create a third list with numbers from the first list that aren't in the second list (using list comprehension).
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+list2 = [4, 5, 6, 10]
+
+# Create a new list with numbers from list1 that are not in list2
+result_list = [num for num in list1 if num not in list2]
+print("New list with elements from list1 not in list2:", result_list)
