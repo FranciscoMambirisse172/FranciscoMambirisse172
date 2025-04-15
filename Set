@@ -1,0 +1,62 @@
+set
+
+#1. Convert words present in a list into uppercase and store them in a set.
+
+# Sample list of words
+words_list = ["apple", "banana", "cherry", "date", "elderberry"]
+
+# Convert words to uppercase and store in a set
+words_set = {word.upper() for word in words_list}
+
+print("Set of words in uppercase:", words_set)
+
+#2. Create a set containing 10 random numbers in the range 15 to 45, count how many are less than 30, and delete all numbers greater than 35.
+
+import random
+
+# Create a set of 10 random numbers in the range 15 to 45
+random_numbers = {random.randint(15, 45) for _ in range(10)}
+print("Original set of random numbers:", random_numbers)
+
+# Count how many numbers are less than 30
+less_than_30 = len([num for num in random_numbers if num < 30])
+print(f"Count of numbers less than 30: {less_than_30}")
+
+# Delete all numbers greater than 35
+random_numbers = {num for num in random_numbers if num <= 35}
+print("Set after deleting numbers greater than 35:", random_numbers)
+
+#3. Create an empty set, add five new names to this set, modify one existing name, and delete two names from it.
+
+# Create an empty set
+names_set = set()
+
+# Add five new names to the set
+names_set.add("Alice")
+names_set.add("Bob")
+names_set.add("Charlie")
+names_set.add("David")
+names_set.add("Eve")
+print("Set after adding names:", names_set)
+
+# Modify an existing name (since sets are unordered, we will remove and add the modified name)
+names_set.remove("Bob")
+names_set.add("Bobby")
+print("Set after modifying 'Bob' to 'Bobby':", names_set)
+
+# Delete two names from the set
+names_set.remove("Alice")
+names_set.remove("Charlie")
+print("Set after deleting 'Alice' and 'Charlie':", names_set)
+
+#4. Separate names that begin with 'A' and 'B' into two different sets.
+
+# Set of names
+names_set = {"Alice", "Bob", "Charlie", "David", "Anna", "Brian", "Bella"}
+
+# Separate the names into two sets: one for names starting with 'A' and one for names starting with 'B'
+a_names = {name for name in names_set if name.startswith('A')}
+b_names = {name for name in names_set if name.startswith('B')}
+
+print("Names that start with 'A':", a_names)
+print("Names that start with 'B':", b_names)
