@@ -1,0 +1,157 @@
+ 1. Largest and Smallest of Two Numbers
+
+def largest_smallest_two(a, b):
+    if a > b:
+        print(f"Largest: {a}, Smallest: {b}")
+    elif b > a:
+        print(f"Largest: {b}, Smallest: {a}")
+    else:
+        print("Both numbers are equal.")
+example: 
+largest_smallest_two(5, 8)
+
+2. Largest and Smallest of Three Numbers
+
+def largest_smallest_three(a, b, c):
+    largest = a
+    smallest = a
+    if b > largest:
+        largest = b
+    if c > largest:
+        largest = c
+    if b < smallest:
+        smallest = b
+    if c < smallest:
+        smallest = c
+    print(f"Largest: {largest}, Smallest: {smallest}")
+
+# Example
+largest_smallest_three(4, 9, 2)
+
+3. Odd or Even
+
+def odd_or_even(n):
+    if n % 2 == 0:
+        print(f"{n} is Even")
+    else:
+        print(f"{n} is Odd")
+
+# Example
+odd_or_even(7)
+
+4. Divisible by 10
+
+def divisible_by_10(n):
+    if n % 10 == 0:
+        print(f"{n} is divisible by 10")
+    else:
+        print(f"{n} is not divisible by 10")
+
+# Example
+divisible_by_10(100)
+
+5. Age Check (Minor or Major)
+
+def check_age(age):
+    if age < 18:
+        print("Minor")
+    else:
+        print("Major")
+
+# Example
+check_age(20)
+
+6. Count Digits in a Number
+
+def count_digits(n):
+    print(f"Number of digits in {n} is {len(str(abs(n)))}")
+
+# Example
+count_digits(12345)
+
+7. Leap Year Check
+
+def is_leap_year(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print(f"{year} is a leap year")
+    else:
+        print(f"{year} is not a leap year")
+
+# Example
+is_leap_year(2024)
+
+8. Triangle Validity Check (Using Angles)
+
+def valid_triangle(a, b, c):
+    if a + b + c == 180 and a > 0 and b > 0 and c > 0:
+        print("Valid Triangle")
+    else:
+        print("Invalid Triangle")
+
+# Example
+valid_triangle(60, 60, 60)
+
+9. Absolute Value
+
+def absolute_value(n):
+    if n < 0:
+        print(f"Absolute value: {-n}")
+    else:
+        print(f"Absolute value: {n}")
+
+# Example
+absolute_value(-5)
+
+10. Area vs Perimeter of Rectangle
+
+def rectangle_area_perimeter(length, breadth):
+    area = length * breadth
+    perimeter = 2 * (length + breadth)
+    if area > perimeter:
+        print("Area is greater than Perimeter")
+    else:
+        print("Perimeter is greater than or equal to Area")
+
+# Example
+rectangle_area_perimeter(10, 5)
+
+11. Collinearity of Three Points
+
+def are_points_collinear(x1, y1, x2, y2, x3, y3):
+    if (y2 - y1)*(x3 - x2) == (y3 - y2)*(x2 - x1):
+        print("Points are Collinear")
+    else:
+        print("Points are not Collinear")
+
+# Example
+are_points_collinear(1, 1, 2, 2, 3, 3)
+
+12. Point in Circle
+
+import math
+
+def point_in_circle(cx, cy, r, x, y):
+    distance = math.sqrt((x - cx)**2 + (y - cy)**2)
+    if distance < r:
+        print("Point is inside the circle")
+    elif distance == r:
+        print("Point is on the circle")
+    else:
+        print("Point is outside the circle")
+
+# Example
+point_in_circle(0, 0, 5, 3, 4)
+
+13. Convert Number (0 to 19) to Word
+
+def number_to_word(n):
+    words = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+             "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+             "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    if 0 <= n <= 19:
+        print(words[n])
+    else:
+        print("Number out of range (0-19)")
+
+# Example
+number_to_word(13)
